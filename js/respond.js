@@ -1,26 +1,36 @@
+//animate play function
 function play(){
-    //Get the canvas &
+
+    //global vars
     var logo = new Image();
+    var r = 0;
+    var r2 = .6;
+
+    //canvas context
     var c=document.getElementById("Canvas");
     var ctx=c.getContext("2d");
     var container = $(c).parent();
 
-    var r = 0;
-    var r2 = .6;
-    //Run function when browser resizes
+    //canvas resize on window size change
     $(window).resize(draw);
 
 
-    var audio = new Audio('sound/DaydreamGramophone.mp3');
-    audio.play();
+    //play song based on needle rotation angle
+    if(){
 
+    }
+    
     //init
     function init()
-    {
+    {   
+        //logo image define
         logo.src = "image/logo.png";
+
+        //call animationg every setInterval rate
         window.requestAnimationFrame(draw);
-        time=setInterval(draw, 10);
-        
+
+        //animate rate (call every 10 milliseconds)
+        time=setInterval(draw, 10);        
         return time;
     }
 
@@ -33,7 +43,7 @@ function play(){
         ctx.clearRect(0,0,$(container).width(),$(container).height());
 
         
-        //button
+        //button Old plau
         ctx.beginPath();
         ctx.arc(($(container).width()/4),($(container).height()/2),($(container).width()/85),0,2*Math.PI);
         ctx.fillStyle="#333333";
@@ -41,29 +51,29 @@ function play(){
 
         ctx.save();
 
-        //rotate
+        //rotation for record
         ctx.translate(($(container).width()/2), ($(container).height()/2));
         ctx.rotate(r);
 
-        //black
+        //black vinyl
         ctx.beginPath();
         ctx.arc(0,0,($(container).width()/5.5),0,2*Math.PI);
         ctx.fillStyle="#333333";
         ctx.fill();
 
-        //red
+        //red vinyl
         ctx.beginPath();
         ctx.arc(0,0,($(container).width()/16),0,2*Math.PI);
         ctx.fillStyle="#ff4d4d";
         ctx.fill();
 
-        //purple
+        //purple vinyl
         ctx.beginPath();
         ctx.arc(0,0,($(container).width()/16),0,1*Math.PI);
         ctx.fillStyle="#9999ff";
         ctx.fill();
 
-        //white
+        //white vinyl
         ctx.beginPath();
         ctx.arc(0,0,($(container).width()/85),0,2*Math.PI);
         ctx.fillStyle="#ffffff";
@@ -71,15 +81,16 @@ function play(){
         
 
        
-        
+        //needle and arm rotation
         ctx.restore();
 
         if (r2 < 1.4){
         r += 0.01;
-        r2 += 0.000064;
+        r2 += .00000975609;
         }
 
 
+        //arm draw
         ctx.translate(($(container).width()/1.4),($(container).height()/2))
 
         ctx.rotate(r2);

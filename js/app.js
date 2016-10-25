@@ -1,14 +1,19 @@
+//global vars
  var on = 0;
  var logo = new Image();
+ var r2 = .6;
+ logo.src = "image/logo.png";
+
+ //content of canvas and get parent div size
  var c=document.getElementById("Canvas");
  var ctx=c.getContext("2d");
  var container = $(c).parent();
- var r2 = .6;
 
+ //scale canvas on window resize
  $(window).resize(draw2);
 
-logo.src = "image/logo.png";
 
+//create variable button or play function
 playButton = function(c) {
     ctx.beginPath();
     ctx.arc(($(container).width()/4),($(container).height()/2),($(container).width()/85),0,2*Math.PI);
@@ -17,9 +22,8 @@ playButton = function(c) {
 };
 
 
+//canvas call
 draw2(); 
-
-
 function draw2(){
         
         $(c).attr('width', $(container).width() ); //max width
@@ -30,7 +34,7 @@ function draw2(){
         var midY = ($(container).height()/2);
         var button = new playButton();
 
-       //black
+       //black vinyl
         ctx.save();
         ctx.translate(midX, midY);
         ctx.beginPath();
@@ -38,19 +42,19 @@ function draw2(){
         ctx.fillStyle="#333333";
         ctx.fill();
 
-        //red
+        //red vinyl
         ctx.beginPath();
         ctx.arc(0,0,($(container).width()/16),0,2*Math.PI);
         ctx.fillStyle="#ff4d4d";
         ctx.fill();
 
-        //purple
+        //purple vinyl
         ctx.beginPath();
         ctx.arc(0,0,($(container).width()/16),0,1*Math.PI);
         ctx.fillStyle="#9999ff";
         ctx.fill();
 
-        //white
+        //white vinyl
         ctx.beginPath();
         ctx.arc(0,0,($(container).width()/85),0,2*Math.PI);
         ctx.fillStyle="#ffffff";
@@ -59,8 +63,6 @@ function draw2(){
 
         //arm
         ctx.restore();
-
-
         ctx.translate(($(container).width()/1.4),($(container).height()/2))
 
         ctx.rotate(r2);
@@ -78,6 +80,7 @@ function draw2(){
         ctx.fillRect((0-($(container).width()/84)),0,($(container).width()/42),($(container).width()/7));
 
 
+        //check if click was on variable play button
         function checkIfInsideButtonCoordinates(buttonObj, mouseX, mouseY)
         {   
             if(((mouseX > ($(container).width()/4)) && (mouseX < (($(container).width()/4) + ($(container).width()/42)))) && ((mouseY > ($(container).height()/2)) && (mouseY < (($(container).height()/2) + ($(container).width()/42)))))
@@ -87,6 +90,7 @@ function draw2(){
 
         }
 
+        //bet x and y coordinate of click and call checkInsideButton
         $("#Canvas").click(function(eventObject) {
             mouseX = (eventObject.pageX - this.offsetLeft) + ($(container).width()/85);
             mouseY = (eventObject.pageY - this.offsetTop) + ($(container).width()/85);
