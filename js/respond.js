@@ -51,8 +51,6 @@ function play(){
 
     function draw(){       
 
-        //checkSongOver();
-        console.log(r2);
         //play You & I
         if((r2 >= .6) && (r2 < .844487) && (songOn == 0)){
             console.log("you and I");
@@ -66,13 +64,13 @@ function play(){
             orion.play();
         }
         //play Country Will Grow
-        if((r2 >= 1.059048) && (r2 < 1.277657) && (songOn == 2)){
+        if((r2 >= 1.059048) && (r2 < 1.272657) && (songOn == 2)){
             console.log("Country Will Grow");
             songOn = 3;
             country.play();
         }
         //play Daydream Gramophone
-        if((r2 >= 1.277657) && (r2 < 1.399608) && (songOn == 3)){
+        if((r2 >= 1.272657) && (r2 < 1.339608) && (songOn == 3)){
             console.log("Daydream Gramophone");
             songOn = 4;
             daydream.play();
@@ -125,7 +123,7 @@ function play(){
         //needle and arm rotation
         ctx.restore();
 
-        if (r2 < 1.4){
+        if (r2 < 1.339){
         r += 0.01;
         r2 += .00000975609;
         }
