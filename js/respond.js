@@ -6,6 +6,23 @@ function play(){
     var r = 0;
     var r2 = .6;
 
+    //song vars
+    var songOn = 0;
+    var youAndI = new Howl({
+      src: ['sound/youandI.mp3']
+    });
+    var orion = new Howl({
+      src: ['sound/orionsbelt.mp3']
+    });
+    var country = new Howl({
+      src: ['sound/countrywillgrow.mp3']
+    });
+    var daydream = new Howl({
+      src: ['sound/daydreamgramophone.mp3']
+    });
+
+
+
     //canvas context
     var c=document.getElementById("Canvas");
     var ctx=c.getContext("2d");
@@ -15,7 +32,7 @@ function play(){
     $(window).resize(draw);
 
 
-    //play song based on needle rotation angle
+    
     
     //init
     function init()
@@ -33,6 +50,33 @@ function play(){
 
 
     function draw(){       
+
+        //checkSongOver();
+        console.log(r2);
+        //play You & I
+        if((r2 >= .6) && (r2 < .844487) && (songOn == 0)){
+            console.log("you and I");
+            songOn = 1;
+            youAndI.play();
+        }
+        //play Orion's Belt
+        if((r2 >= .844487) && (r2 < 1.059048) && (songOn == 1)){
+            console.log("orion's");
+            songOn = 2;
+            orion.play();
+        }
+        //play Country Will Grow
+        if((r2 >= 1.059048) && (r2 < 1.277657) && (songOn == 2)){
+            console.log("Country Will Grow");
+            songOn = 3;
+            country.play();
+        }
+        //play Daydream Gramophone
+        if((r2 >= 1.277657) && (r2 < 1.399608) && (songOn == 3)){
+            console.log("Daydream Gramophone");
+            songOn = 4;
+            daydream.play();
+        }
 
         $(c).attr('width', $(container).width() ); //max width
         $(c).attr('height', $(container).height() ); //max height
@@ -104,6 +148,37 @@ function play(){
 
         ctx.fillRect((0-($(container).width()/84)),0,($(container).width()/42),($(container).width()/7));
     }
+
+    /*//check if song is playing
+    function checkSongOver() {
+      if(songOn == 1) {
+
+        //reset songOn if youAndI is over
+        youAndI.on('end', function(){
+            console.log("you end");
+            songOn = 2;
+        });
+
+        //reset songOn if orion is over
+        orion.on('end', function(){
+            console.log("orion end");
+            songOn = 3;
+        });
+
+        //reset songOn if country is over
+        country.on('end', function(){
+            console.log("country end");
+            songOn = 4;
+        });
+
+        //reset songOn if daydream is over
+        daydream.on('end', function(){
+            console.log("daydream end");
+            songOn = 5;
+        });
+
+      }
+    } */
 
     //Initial call 
     init();
