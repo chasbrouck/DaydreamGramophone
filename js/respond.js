@@ -16,9 +16,6 @@ function play(){
 
 
     //play song based on needle rotation angle
-    if(){
-
-    }
     
     //init
     function init()
