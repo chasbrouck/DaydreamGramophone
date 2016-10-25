@@ -6,12 +6,13 @@ function play(){
     var container = $(c).parent();
 
     var r = 0;
+    var r2 = .6;
     //Run function when browser resizes
     $(window).resize(draw);
 
 
-    //var audio = new Audio('sound/DaydreamGramophone.mp3');
-    //audio.play();
+    var audio = new Audio('sound/DaydreamGramophone.mp3');
+    audio.play();
 
     //init
     function init()
@@ -37,6 +38,8 @@ function play(){
         ctx.arc(($(container).width()/4),($(container).height()/2),($(container).width()/85),0,2*Math.PI);
         ctx.fillStyle="#333333";
         ctx.fill();
+
+        ctx.save();
 
         //rotate
         ctx.translate(($(container).width()/2), ($(container).height()/2));
@@ -66,8 +69,32 @@ function play(){
         ctx.fillStyle="#ffffff";
         ctx.fill();
         
-        r += 0.01;
+
+       
         
+        ctx.restore();
+
+        if (r2 < 1.4){
+        r += 0.01;
+        r2 += 0.000064;
+        }
+
+
+        ctx.translate(($(container).width()/1.4),($(container).height()/2))
+
+        ctx.rotate(r2);
+        ctx.beginPath();
+        ctx.arc(0,0,($(container).width()/84),0,2*Math.PI);
+        ctx.fillStyle="#808080";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(0,($(container).width()/6.9),($(container).width()/84),0,2*Math.PI);
+        ctx.fillStyle="#808080";
+        ctx.fill(); 
+
+
+        ctx.fillRect((0-($(container).width()/84)),0,($(container).width()/42),($(container).width()/7));
     }
 
     //Initial call 

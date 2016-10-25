@@ -3,6 +3,7 @@
  var c=document.getElementById("Canvas");
  var ctx=c.getContext("2d");
  var container = $(c).parent();
+ var r2 = .6;
 
  $(window).resize(draw2);
 
@@ -24,12 +25,13 @@ function draw2(){
         $(c).attr('width', $(container).width() ); //max width
         $(c).attr('height', $(container).height() ); //max height
 
-
+        //button
         var midX = ($(container).width()/2);
         var midY = ($(container).height()/2);
         var button = new playButton();
 
        //black
+        ctx.save();
         ctx.translate(midX, midY);
         ctx.beginPath();
         ctx.arc(0,0,($(container).width()/5.5),0,2*Math.PI);
@@ -53,6 +55,28 @@ function draw2(){
         ctx.arc(0,0,($(container).width()/85),0,2*Math.PI);
         ctx.fillStyle="#ffffff";
         ctx.fill();
+
+
+        //arm
+        ctx.restore();
+
+
+        ctx.translate(($(container).width()/1.4),($(container).height()/2))
+
+        ctx.rotate(r2);
+        ctx.beginPath();
+        ctx.arc(0,0,($(container).width()/84),0,2*Math.PI);
+        ctx.fillStyle="#808080";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(0,($(container).width()/6.9),($(container).width()/84),0,2*Math.PI);
+        ctx.fillStyle="#808080";
+        ctx.fill(); 
+
+
+        ctx.fillRect((0-($(container).width()/84)),0,($(container).width()/42),($(container).width()/7));
+
 
         function checkIfInsideButtonCoordinates(buttonObj, mouseX, mouseY)
         {   
