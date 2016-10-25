@@ -1,47 +1,83 @@
-var sun = new Image();
-var moon = new Image();
-var earth = new Image();
-function init(){
-  sun.src = 'https://mdn.mozillademos.org/files/1456/Canvas_sun.png';
-  moon.src = 'https://mdn.mozillademos.org/files/1443/Canvas_moon.png';
-  earth.src = 'https://mdn.mozillademos.org/files/1429/Canvas_earth.png';
-  window.requestAnimationFrame(draw);
-}
+ var on = 0;
+ var logo = new Image();
+ var c=document.getElementById("Canvas");
+ var ctx=c.getContext("2d");
+ var container = $(c).parent();
 
-function draw() {
-  var ctx = document.getElementById('canvas').getContext('2d');
+ $(window).resize(draw2);
 
-  ctx.globalCompositeOperation = 'destination-over';
-  ctx.clearRect(0,0,300,300); // clear canvas
+logo.src = "image/logo.png";
 
-  ctx.fillStyle = 'rgba(0,0,0,0.4)';
-  ctx.strokeStyle = 'rgba(0,153,255,0.4)';
-  ctx.save();
-  ctx.translate(150,150);
+playButton = function(c) {
+    ctx.beginPath();
+    ctx.arc(($(container).width()/4),($(container).height()/2),($(container).width()/85),0,2*Math.PI);
+    ctx.fillStyle="#333333";
+    ctx.fill();   
+};
 
-  // Earth
-  var time = new Date();
-  ctx.rotate( ((2*Math.PI)/60)*time.getSeconds() + ((2*Math.PI)/60000)*time.getMilliseconds() );
-  ctx.translate(105,0);
-  ctx.fillRect(0,-12,50,24); // Shadow
-  ctx.drawImage(earth,-12,-12);
 
-  // Moon
-  ctx.save();
-  ctx.rotate( ((2*Math.PI)/6)*time.getSeconds() + ((2*Math.PI)/6000)*time.getMilliseconds() );
-  ctx.translate(0,28.5);
-  ctx.drawImage(moon,-3.5,-3.5);
-  ctx.restore();
+draw2(); 
 
-  ctx.restore();
+
+function draw2(){
+        
+        $(c).attr('width', $(container).width() ); //max width
+        $(c).attr('height', $(container).height() ); //max height
+
+
+        var midX = ($(container).width()/2);
+        var midY = ($(container).height()/2);
+        var button = new playButton();
+
+       //black
+        ctx.translate(midX, midY);
+        ctx.beginPath();
+        ctx.arc(0,0,($(container).width()/5.5),0,2*Math.PI);
+        ctx.fillStyle="#333333";
+        ctx.fill();
+
+        //red
+        ctx.beginPath();
+        ctx.arc(0,0,($(container).width()/16),0,2*Math.PI);
+        ctx.fillStyle="#ff4d4d";
+        ctx.fill();
+
+        //purple
+        ctx.beginPath();
+        ctx.arc(0,0,($(container).width()/16),0,1*Math.PI);
+        ctx.fillStyle="#9999ff";
+        ctx.fill();
+
+        //white
+        ctx.beginPath();
+        ctx.arc(0,0,($(container).width()/85),0,2*Math.PI);
+        ctx.fillStyle="#ffffff";
+        ctx.fill();
+
+        function checkIfInsideButtonCoordinates(buttonObj, mouseX, mouseY)
+        {   
+            if(((mouseX > ($(container).width()/4)) && (mouseX < (($(container).width()/4) + ($(container).width()/42)))) && ((mouseY > ($(container).height()/2)) && (mouseY < (($(container).height()/2) + ($(container).width()/42)))))
+                return true;
+            else
+                return false;
+
+        }
+
+        $("#Canvas").click(function(eventObject) {
+            mouseX = (eventObject.pageX - this.offsetLeft) + ($(container).width()/85);
+            mouseY = (eventObject.pageY - this.offsetTop) + ($(container).width()/85);
+
+            if(checkIfInsideButtonCoordinates(button, mouseX, mouseY) && (on == 0) )
+            { 
+                on = 1;
+                play();
+          
+            }else{
   
-  ctx.beginPath();
-  ctx.arc(150,150,105,0,Math.PI*2,false); // Earth orbit
-  ctx.stroke();
- 
-  ctx.drawImage(sun,0,0,300,300);
-
-  window.requestAnimationFrame(draw);
+            }
+        });
+        
 }
 
-init();
+
+        

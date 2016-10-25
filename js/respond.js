@@ -1,4 +1,4 @@
-
+function play(){
     //Get the canvas &
     var logo = new Image();
     var c=document.getElementById("Canvas");
@@ -10,8 +10,8 @@
     $(window).resize(draw);
 
 
-    var audio = new Audio('sound/DaydreamGramophone.mp3');
-    audio.play();
+    //var audio = new Audio('sound/DaydreamGramophone.mp3');
+    //audio.play();
 
     //init
     function init()
@@ -31,11 +31,18 @@
 
         ctx.clearRect(0,0,$(container).width(),$(container).height());
 
+        
+        //button
+        ctx.beginPath();
+        ctx.arc(($(container).width()/4),($(container).height()/2),($(container).width()/85),0,2*Math.PI);
+        ctx.fillStyle="#333333";
+        ctx.fill();
+
+        //rotate
         ctx.translate(($(container).width()/2), ($(container).height()/2));
-         //record
-        //black
         ctx.rotate(r);
 
+        //black
         ctx.beginPath();
         ctx.arc(0,0,($(container).width()/5.5),0,2*Math.PI);
         ctx.fillStyle="#333333";
@@ -47,16 +54,11 @@
         ctx.fillStyle="#ff4d4d";
         ctx.fill();
 
-        //red
+        //purple
         ctx.beginPath();
         ctx.arc(0,0,($(container).width()/16),0,1*Math.PI);
         ctx.fillStyle="#9999ff";
         ctx.fill();
-
-
-        ctx.font="20px Georgia";
-        ctx.fillStyle="#333333";
-        ctx.fillText("DG",-15,-20);
 
         //white
         ctx.beginPath();
@@ -70,3 +72,4 @@
 
     //Initial call 
     init();
+}
