@@ -60,6 +60,24 @@ function draw2(){
         ctx.fillStyle="#ffffff";
         ctx.fill();
 
+        //orions ring
+        ctx.beginPath();
+        ctx.arc(0,0,($(container).width()/7),0,2*Math.PI);
+        ctx.strokeStyle="#808080";
+        ctx.stroke();
+
+        //country ring
+        ctx.beginPath();
+        ctx.arc(0,0,($(container).width()/9),0,2*Math.PI);
+        ctx.strokeStyle="#808080";
+        ctx.stroke();
+
+        //daydream ring
+        ctx.beginPath();
+        ctx.arc(0,0,($(container).width()/12.2),0,2*Math.PI);
+        ctx.strokeStyle="#808080";
+        ctx.stroke();
+
 
         //arm
         ctx.restore();
