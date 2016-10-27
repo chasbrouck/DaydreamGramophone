@@ -1,10 +1,6 @@
-//animate play function
-function play(){
-
-    //global vars
+//global vars
     var logo = new Image();
     var r = 0;
-    var r2 = .6;
 
     //song vars
     var songOn = 0;
@@ -22,6 +18,8 @@ function play(){
     });
 
 
+//animate play function
+function play(){
 
     //canvas context
     var c=document.getElementById("Canvas");
@@ -37,9 +35,6 @@ function play(){
     //init
     function init()
     {   
-        //logo image define
-        logo.src = "image/logo.png";
-
         //call animationg every setInterval rate
         window.requestAnimationFrame(draw);
 

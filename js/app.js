@@ -2,7 +2,6 @@
  var on = 0;
  var logo = new Image();
  var r2 = .6;
- logo.src = "image/logo.png";
 
  //content of canvas and get parent div size
  var c=document.getElementById("Canvas");
@@ -21,6 +20,26 @@ playButton = function(c) {
     ctx.fill();   
 };
 
+function youNeedle(){
+    r2 = .6;
+    draw2();
+    songOn = 0;
+}
+function orionsNeedle(){
+    r2 = .844487;
+    draw2();
+    songOn = 1;
+}
+function countryNeedle(){
+    r2 = 1.059048;
+    draw2();
+    songOn = 2;
+}
+function daydreamNeedle(){
+    r2 = 1.272657;
+    draw2();
+    songOn = 3;
+}
 
 //canvas call
 draw2(); 
