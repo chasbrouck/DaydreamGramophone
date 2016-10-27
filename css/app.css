@@ -89,14 +89,14 @@ a {
 /* mobile break desktop*/
 @media (max-width: 810px) { 
 	h2 {
-		font-size: 4.5vw;
+		font-size: 4.8vw;
 	}
 	h3 {
 	display: inline-block;
-	font-size: 3.5vw;
+	font-size: 3.8vw;
 	}
 	h3:hover {
-	font-size: 3.5vw;
+	font-size: 3.8vw;
 	}
 	button {
         background-color: Transparent;
@@ -126,3 +126,29 @@ a {
 
 	}
 } 
+/* mid mobile break desktop*/
+@media (max-width: 630px) { 
+	h2 {
+		font-size: 6vw;
+	}
+	h3 {
+	display: inline-block;
+	font-size: 5vw;
+	}
+	h3:hover {
+	font-size: 5vw;
+	}
+}
+/* mid mobile break desktop*/
+@media (max-width: 530px) { 
+	h2 {
+		font-size: 7vw;
+	}
+	h3 {
+	display: inline-block;
+	font-size: 6vw;
+	}
+	h3:hover {
+	font-size: 6vw;
+	}
+}
