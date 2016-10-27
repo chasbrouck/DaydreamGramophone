@@ -20,7 +20,14 @@ h3:hover {
 a {
 	color: #262626;
 }
-button {
+
+/*desktop all*/
+@media (min-width: 811px) { 
+	body {
+	margin-left: 8%;
+	margin-top: 2%;
+	}
+	button {
         background-color: Transparent;
         background-repeat:no-repeat;
         border: none;
@@ -32,13 +39,7 @@ button {
         width: 100%;
         padding-top: 3%;
         padding-bottom: 3%;
-}
-
-@media (min-width: 996px) { 
-	body {
-	margin-left: 8%;
-	margin-top: 2%;
-	}
+     }
 
 	#main{
     display:inline-block;
@@ -55,13 +56,52 @@ button {
 	}
 	#download {
 		text-align: center;
-		padding-top: 5%;
+		padding-top: 20%;
 	}
 }
-@media (max-width: 995px) { 
+/* mid desktop*/
+@media (max-width: 1120px){
+	h2 {
+		font-size: 3.8vw;
+	}
+	h3 {
+	font-size: 2.9vw;
+	}
+	h3:hover {
+	font-size: 3.0vw;
+	}
+}
+/* small-mid desktop*/
+@media (max-width: 980px){
+	h2 {
+		font-size: 3.9vw;
+	}
+	h3 {
+	font-size: 3.0vw;
+	}
+	h3:hover {
+	font-size: 3.1vw;
+	}
+	#songList {
+		margin-top:4%;
+	}
+}
+/* mobile break desktop*/
+@media (max-width: 810px) { 
 	h3 {
 		display: inline-block;
 	}
+	button {
+        background-color: Transparent;
+        background-repeat:no-repeat;
+        border: none;
+        cursor:pointer;
+        overflow: hidden;
+        padding:0px;
+        margin: 0px;
+        outline: none;
+        width: 100%;
+     }
 
 	#main{
     display:inline-block;
@@ -69,7 +109,6 @@ button {
     height:500px;
     float: right;
 	}
-
 	#songList {
 		width: 100%;
 		display: inline-block;
