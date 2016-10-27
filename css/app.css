@@ -21,23 +21,23 @@ a {
 	color: #262626;
 }
 button {
-            background-color: Transparent;
-            background-repeat:no-repeat;
-            border: none;
-            cursor:pointer;
-            overflow: hidden;
-            padding:0px;
-            margin: 0px;
-            outline: none;
-            width: 100%;
-            padding-top: 3%;
-            padding-bottom: 3%;
+        background-color: Transparent;
+        background-repeat:no-repeat;
+        border: none;
+        cursor:pointer;
+        overflow: hidden;
+        padding:0px;
+        margin: 0px;
+        outline: none;
+        width: 100%;
+        padding-top: 3%;
+        padding-bottom: 3%;
 }
 
 @media (min-width: 996px) { 
 	body {
 	margin-left: 8%;
-	margin-top: 3%;
+	margin-top: 2%;
 	}
 
 	#main{
@@ -45,6 +45,7 @@ button {
     width:85%;
     height:500px;
     float: right;
+    margin-top: 2%;
 	} 
 
 	#songList {

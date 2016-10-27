@@ -17,6 +17,12 @@
       src: ['sound/daydreamgramophone.mp3']
     });
 
+Button = function(c) {
+    ctx.beginPath();
+    ctx.arc(($(container).width()/4),($(container).height()/2),($(container).width()/85),0,2*Math.PI);
+    ctx.fillStyle="#333333";
+    ctx.fill();   
+};
 
 //animate play function
 function play(){
@@ -50,24 +56,40 @@ function play(){
         if((r2 >= .6) && (r2 < .844487) && (songOn == 0)){
             console.log("you and I");
             songOn = 1;
+            youAndI.stop();
+            orion.stop();
+            country.stop();
+            daydream.stop();
             youAndI.play();
         }
         //play Orion's Belt
         if((r2 >= .844487) && (r2 < 1.059048) && (songOn == 1)){
             console.log("orion's");
             songOn = 2;
+            youAndI.stop();
+            orion.stop();
+            country.stop();
+            daydream.stop();
             orion.play();
         }
         //play Country Will Grow
         if((r2 >= 1.059048) && (r2 < 1.272657) && (songOn == 2)){
             console.log("Country Will Grow");
             songOn = 3;
+            youAndI.stop();
+            orion.stop();
+            country.stop();
+            daydream.stop();
             country.play();
         }
         //play Daydream Gramophone
         if((r2 >= 1.272657) && (r2 < 1.339608) && (songOn == 3)){
             console.log("Daydream Gramophone");
             songOn = 4;
+            youAndI.stop();
+            orion.stop();
+            country.stop();
+            daydream.stop();
             daydream.play();
         }
 
@@ -78,10 +100,13 @@ function play(){
 
         
         //button Old plau
-        ctx.beginPath();
-        ctx.arc(($(container).width()/4),($(container).height()/2),($(container).width()/85),0,2*Math.PI);
-        ctx.fillStyle="#333333";
-        ctx.fill();
+        //ctx.beginPath();
+        //ctx.arc(($(container).width()/4),($(container).height()/2),($(container).width()/85),0,2*Math.PI);
+        //ctx.fillStyle="#333333";
+        //ctx.fill();
+
+        var playButton = new Button();
+
 
         ctx.save();
 
@@ -141,7 +166,6 @@ function play(){
         r2 += .00000975609;
         }
 
-
         //arm draw
         ctx.translate(($(container).width()/1.4),($(container).height()/2))
 
@@ -159,37 +183,6 @@ function play(){
 
         ctx.fillRect((0-($(container).width()/84)),0,($(container).width()/42),($(container).width()/7));
     }
-
-    /*//check if song is playing
-    function checkSongOver() {
-      if(songOn == 1) {
-
-        //reset songOn if youAndI is over
-        youAndI.on('end', function(){
-            console.log("you end");
-            songOn = 2;
-        });
-
-        //reset songOn if orion is over
-        orion.on('end', function(){
-            console.log("orion end");
-            songOn = 3;
-        });
-
-        //reset songOn if country is over
-        country.on('end', function(){
-            console.log("country end");
-            songOn = 4;
-        });
-
-        //reset songOn if daydream is over
-        daydream.on('end', function(){
-            console.log("daydream end");
-            songOn = 5;
-        });
-
-      }
-    } */
 
     //Initial call 
     init();
