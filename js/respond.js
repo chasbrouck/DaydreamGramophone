@@ -14,7 +14,7 @@
       src: ['sound/countrywillgrow.mp3']
     });
     var daydream = new Howl({
-      src: ['sound/daydreamgramophone.mp3']
+      src: ['sound/daydream.mp3']
     });
 
 Button = function(c) {
