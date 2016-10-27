@@ -139,6 +139,18 @@ canvas {
 } 
 /* mid mobile break desktop*/
 @media (max-width: 630px) { 
+	#songList {
+
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        outline: none;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
+    } 
+	
 	h2 {
 		font-size: 6vw;
 	}
