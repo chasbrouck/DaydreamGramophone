@@ -15,7 +15,7 @@
 //create variable button or play function
 playButton = function(c) {
     ctx.beginPath();
-    ctx.arc(($(container).width()/4),($(container).height()/2),($(container).width()/85),0,2*Math.PI);
+    ctx.arc(($(container).width()/4),($(container).height()/2),($(container).width()/60),0,2*Math.PI);
     ctx.fillStyle="#333333";
     ctx.fill();   
 };
@@ -121,7 +121,7 @@ function draw2(){
         //check if click was on variable play button
         function checkIfInsideButtonCoordinates(buttonObj, mouseX, mouseY)
         {   
-            if(((mouseX > ($(container).width()/4)) && (mouseX < (($(container).width()/4) + ($(container).width()/42)))) && ((mouseY > ($(container).height()/2)) && (mouseY < (($(container).height()/2) + ($(container).width()/42)))))
+            if(((mouseX > ($(container).width()/4)) && (mouseX < (($(container).width()/4) + ($(container).width()/28)))) && ((mouseY > ($(container).height()/2)) && (mouseY < (($(container).height()/2) + ($(container).width()/28)))))
                 return true;
             else
                 return false;
@@ -130,8 +130,8 @@ function draw2(){
 
         //bet x and y coordinate of click and call checkInsideButton
         $("#Canvas").click(function(eventObject) {
-            mouseX = (eventObject.pageX - this.offsetLeft) + ($(container).width()/85);
-            mouseY = (eventObject.pageY - this.offsetTop) + ($(container).width()/85);
+                        mouseX = (eventObject.pageX - this.offsetLeft) + ($(container).width()/60);
+            mouseY = (eventObject.pageY - this.offsetTop) + ($(container).width()/60);
 
             if(checkIfInsideButtonCoordinates(button, mouseX, mouseY) && (on == 0) )
             { 

@@ -19,7 +19,7 @@
 
 Button = function(c) {
     ctx.beginPath();
-    ctx.arc(($(container).width()/4),($(container).height()/2),($(container).width()/85),0,2*Math.PI);
+    ctx.arc(($(container).width()/4),($(container).height()/2),($(container).width()/60),0,2*Math.PI);
     ctx.fillStyle="#333333";
     ctx.fill();  
 };
@@ -94,12 +94,6 @@ function play(){
 
         ctx.clearRect(0,0,$(container).width(),$(container).height());
 
-        
-        //button Old plau
-        //ctx.beginPath();
-        //ctx.arc(($(container).width()/4),($(container).height()/2),($(container).width()/85),0,2*Math.PI);
-        //ctx.fillStyle="#333333";
-        //ctx.fill();
 
         var playButton = new Button();
 
@@ -134,6 +128,7 @@ function play(){
         ctx.fillStyle="#ffffff";
         ctx.fill();
 
+        ctx.lineWidth = 2;
         //orions ring
         ctx.beginPath();
         ctx.arc(0,0,($(container).width()/7),0,2*Math.PI);
