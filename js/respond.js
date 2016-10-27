@@ -54,7 +54,6 @@ function play(){
 
         //play You & I
         if((r2 >= .6) && (r2 < .844487) && (songOn == 0)){
-            console.log("you and I");
             songOn = 1;
             youAndI.stop();
             orion.stop();
@@ -64,7 +63,6 @@ function play(){
         }
         //play Orion's Belt
         if((r2 >= .844487) && (r2 < 1.059048) && (songOn == 1)){
-            console.log("orion's");
             songOn = 2;
             youAndI.stop();
             orion.stop();
@@ -74,7 +72,6 @@ function play(){
         }
         //play Country Will Grow
         if((r2 >= 1.059048) && (r2 < 1.272657) && (songOn == 2)){
-            console.log("Country Will Grow");
             songOn = 3;
             youAndI.stop();
             orion.stop();
@@ -84,7 +81,6 @@ function play(){
         }
         //play Daydream Gramophone
         if((r2 >= 1.272657) && (r2 < 1.339608) && (songOn == 3)){
-            console.log("Daydream Gramophone");
             songOn = 4;
             youAndI.stop();
             orion.stop();
