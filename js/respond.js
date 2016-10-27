@@ -21,7 +21,7 @@ Button = function(c) {
     ctx.beginPath();
     ctx.arc(($(container).width()/4),($(container).height()/2),($(container).width()/85),0,2*Math.PI);
     ctx.fillStyle="#333333";
-    ctx.fill();   
+    ctx.fill();  
 };
 
 //animate play function
@@ -157,7 +157,7 @@ function play(){
         //needle and arm rotation
         ctx.restore();
 
-        if (r2 < 1.339){
+        if ((r2 < 1.339) && (on == 1)){
         r += 0.01;
         r2 += .00000975609;
         }
@@ -178,6 +178,7 @@ function play(){
 
 
         ctx.fillRect((0-($(container).width()/84)),0,($(container).width()/42),($(container).width()/7));
+        
     }
 
     //Initial call 

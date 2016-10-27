@@ -80,6 +80,7 @@ function draw2(){
         ctx.fill();
 
         //orions ring
+        ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.arc(0,0,($(container).width()/7),0,2*Math.PI);
         ctx.strokeStyle="#808080";
