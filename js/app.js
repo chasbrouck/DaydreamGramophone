@@ -121,7 +121,7 @@ function draw2(){
         //check if click was on variable play button
         function checkIfInsideButtonCoordinates(buttonObj, mouseX, mouseY)
         {   
-            if(((mouseX > ($(container).width()/4)) && (mouseX < (($(container).width()/4) + ($(container).width()/28)))) && ((mouseY > ($(container).height()/2)) && (mouseY < (($(container).height()/2) + ($(container).width()/28)))))
+            if(((mouseX > ($(container).width()/4)) && (mouseX < (($(container).width()/4) + ($(container).width()/26)))) && ((mouseY > ($(container).height()/2)) && (mouseY < (($(container).height()/2) + ($(container).width()/26)))))
                 return true;
             else
                 return false;
